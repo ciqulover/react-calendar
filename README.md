@@ -1,4 +1,4 @@
-# react-calendar：一个基于react.js的日历组件
+# React-Calendar：一个基于React.js的日历组件
 
 [Demo Site](http://ycwalker.com/react-calendar/)
 
