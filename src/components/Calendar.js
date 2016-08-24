@@ -110,9 +110,6 @@ class Calendar extends React.Component {
         <div className="star3"></div>
         <p className="datePicked"
            onClick={::this.datePickerToggle}>
-          <i className="fa fa-calendar fa-fw">
-            &nbsp;
-          </i>
           {props.datePicked}
         </p>
         <div className="main" ref="main">
