@@ -2,7 +2,7 @@
 
 [Demo Site](http://ycwalker.com/react-calendar/)
 
-![demo](https://github.com/ycwalker/react-calendar/raw/master/demo.png)
+![demo](https://github.com/ycwalker/react-calendar/raw/master/demo.gif)
 
 ### 使用方法
 * 将public目录下的build.js引入html文件(body元素末尾)
