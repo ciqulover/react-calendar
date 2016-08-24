@@ -1,0 +1,148 @@
+@import "normalize.css";
+@import "font-awesome.css";
+
+@function shadows($n) {
+  $value: '#{random(400)}px #{random(510)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value},#{random(400)}px #{random(510)}px #FFF';
+  }
+  @return unquote($value)
+}
+
+@mixin star($size,$shadow,$time) {
+  border-radius: 50%;
+  position: absolute;
+  width: $size;
+  height: $size;
+  background: transparent;
+  box-shadow: $shadow;
+  animation: starAnimation $time linear infinite;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 510px;
+    width: $size;
+    height: $size;
+    background: transparent;
+    box-shadow: $shadow;
+  }
+}
+
+@keyframes starAnimation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-510px);
+  }
+}
+
+.calendarContainer {
+  font-family: Century Gothic, sans-serif;
+  position: relative;
+  width: 400px;
+  margin: 100px auto;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  box-shadow: 5px 5px 10px gray;
+  overflow: hidden;
+  .output {
+    .star1 {
+      @include star(1px, shadows(100), 30s)
+    }
+    .star2 {
+      @include star(2px, shadows(30), 50s)
+    }
+    .star3 {
+      @include star(3px, shadows(10), 80s)
+    }
+    .datePicked {
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      height: 50px;
+      color: #FFF;
+      margin: 0;
+    }
+    .main {
+      transition: height 0.6s;
+      overflow: hidden;
+      height: 0;
+      .calendarHeader {
+        height: 50px;
+        text-align: center;
+        span {
+          position: relative;
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          color: #FFF;
+        }
+        span.prev {
+          font-size: 20px;
+          left: 20px;
+          float: left;
+          cursor: pointer;
+        }
+        span.next {
+          font-size: 20px;
+          right: 20px;
+          float: right;
+          cursor: pointer;
+        }
+        span.dateInfo {
+          cursor: default;
+        }
+      }
+      table.calendarMain {
+        border-spacing: 20px;
+        border-collapse: separate;
+        margin: 0 auto;
+        thead {
+          color: #FFF;
+        }
+        tbody tr {
+          td {
+            box-sizing: border-box;
+            height: 30px;
+            width: 30px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            color: #FFF;
+            border-radius: 50%;
+
+          }
+          td.prevMonth, td.nextMonth {
+            color: darken(#FFF, 40%);
+          }
+        }
+        tr td {
+          &:first-of-type, &:last-of-type {
+            font-size: 16px;
+          }
+        }
+      }
+      .calendarFooter {
+        height: 50px;
+        text-align: right;
+        button {
+          margin: 10px 20px;
+          height: 30px;
+          width: 80px;
+          box-sizing: border-box;
+          font-size: 14px;
+          background-color: transparent;
+          color: #FFF;
+          outline: none;
+          border: 1px solid #FFF;
+          transition: all 0.4s;
+          &:hover {
+            background-color: #FFF;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
