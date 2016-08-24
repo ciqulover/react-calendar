@@ -9,6 +9,7 @@
 * 在html里引入如下div
 
 `<div class="calendarContainer" id="calendarContainer"></div>`
+
 此元素会成为日历组件的容器
 
 ### 获取已选取日期的方法:
