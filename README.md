@@ -39,5 +39,3 @@ console.log(state)
 * 返回结果中picked属性如果为false，表明日期未被选择
 * month的值从0开始，0代表1月
 
-### License
-MIT
