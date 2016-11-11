@@ -29,7 +29,7 @@ const displayDaysPerMonth = (year)=> {
       if (day === 0) {
         return 6
       } else {
-        return day - 1
+        return day
       }
     })
 
