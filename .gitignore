@@ -1,0 +1,7 @@
+# dependencies
+node_modules
+yarn-error.log
+# misc
+.DS_Store
+npm-debug.log*
+logs

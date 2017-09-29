@@ -1,41 +1,103 @@
-# React-Calendar：一个基于React.js的日历组件
+#### React-Calendar
 
-[Demo Site](http://ycwalker.com/react-calendar/)
+[![npm package](https://img.shields.io/npm/v/ciqu-react-calendar.svg?style=flat)](https://www.npmjs.org/package/ciqu-react-calendar)
+[![Dependency Status](https://gemnasium.com/badges/github.com/ciqulover/react-calendar.svg)](https://gemnasium.com/github.com/ciqulover/react-calendar)
 
-![demo](https://github.com/ycwalker/react-calendar/raw/master/demo.gif)
 
-### 使用方法
-* 将public目录下的build.js引入html文件(body元素末尾)
-* 在html里引入如下div
+### Install
 
-```
-<div class="calendarContainer" id="calendarContainer"></div>
+```angular2html
+npm install ciqu-react-calendar --save
 ```
 
-此元素会成为日历组件的容器
+### Example
 
-### 获取已选取日期的方法:
+```angular2html
+
+import React from 'react'
+import ReactDom from 'react-dom'
+import moment from 'moment'
+import Calendar from 'ciqu-react-calendar'
+
+class MyCalendar extends React.Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  onChange = (value: moment.Moment, inputValue: string) => {
+    console.log(value.format('YYYY-MM-DD'))
+    this.setState({value})
+  }
+
+  onOpenChange = (status?: boolean) => {
+    console.log('open status: ' + status)
+  }
+
+  disabledDate = (currentDate: moment.Moment, inputValue: string) => {
+    return false
+  }
+
+  render() {
+    const {onChange, onOpenChange, disabledDate} = this
+    return <div style={{
+      width: 400,
+      margin: '200px auto'
+    }}>
+      <Calender
+        onChange={onChange}
+        allowClear={true}
+        disabled={false}
+        placeholder={'please input date'}
+        format={'YYYY-MM-DD'}
+        defaultValue={moment()}
+        onOpenChange={onOpenChange}
+        disabledDate={disabledDate}
+      />
+    </div>
+  }
+}
+
+ReactDom.render(
+  <MyCalendar/>,
+  document.getElementById('el')
+)
 
 ```
-var state = window.calendar.state
-```
 
-### 结果
+### API
+```js
+interface CalendarProps {
+  // when input value changes, this callback will be called, default null
+  onChange?(value?: Moment, inputValue?: string): void
+  
+  // fired when date picker show or hide, default null
+  onOpenChange?(status?: boolean): void
+  
+  // when returned true the date cannot be picked, default null
+  disabledDate?(currentDate: Moment, inputValue: string): boolean
+  
+  // allow to clear the picked date, default true
+  allowClear?: boolean
+  
+  // if true, the date picker is disabled, default false
+  disabled?: boolean
+  
+  // control whether the date picker shows or hides, default false
+  open?: boolean,
+  
+  placeholder?: string
+  
+  // moment format string, default 'YYYY-MM-DD'
+  format?: string
 
-```
-console.log(state)
-```
-
-```
-{
-      year: 2016,
-      month: 7,
-      day: 24,
-      picked: true
+  className?: string
+  
+  // value under control, default moment()
+  value?: Moment
+  
+  defaultValue?: Moment
 }
 ```
-
-### 说明
-* 返回结果中picked属性如果为false，表明日期未被选择
-* month的值从0开始，0代表1月
-
+### License
+MIT

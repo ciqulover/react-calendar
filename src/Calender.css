@@ -1,0 +1,13 @@
+.calendar {
+  height: 0;
+
+}
+
+.opened {
+  height: 268px;
+}
+
+.calender-date:hover {
+  background-color: #ecf6fd;
+  transition: all 0.2s;
+}

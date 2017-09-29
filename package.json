@@ -1,36 +1,39 @@
 {
-  "name": "react-calendar",
+  "name": "ciqu-react-calendar",
+  "author": "ciqulover@gmail.com",
   "version": "1.0.0",
-  "description": "A Cool Calendar Width React.js",
-  "scripts": {
-    "dev": "webpack-dev-server --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "watch": "webpack --progress --color --watch"
-  },
-  "author": "ycwalker",
+  "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "node build/build.js",
+    "build:gh-pages": "node build/gh-page.build.js",
+    "dev": "webpack-dev-server --config=build/webpack.dev.conf"
+  },
   "dependencies": {
-    "babel-runtime": "^6.0.0",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "classnames": "^2.2.5",
+    "moment": "^2.18.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-icons": "^2.2.5"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-plugin-transform-runtime": "^6.0.0",
-    "babel-preset-es2015": "^6.0.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.5.0",
-    "cross-env": "^1.0.6",
-    "css-loader": "^0.23.0",
-    "file-loader": "^0.8.4",
-    "node-sass": "^3.8.0",
-    "sass": "^0.5.0",
-    "sass-loader": "^4.0.0",
-    "style-loader": "^0.13.1",
-    "uglify-js": "^2.7.3",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.12.0"
+    "@types/react": "^16.0.7",
+    "@types/react-dom": "^15.5.5",
+    "awesome-typescript-loader": "^3.2.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
+    "chalk": "^2.1.0",
+    "css-loader": "^0.28.7",
+    "html-webpack-harddisk-plugin": "^0.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "ora": "^1.3.0",
+    "source-map-loader": "^0.2.1",
+    "style-loader": "^0.18.2",
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2",
+    "webpack-merge": "^4.1.0"
   }
 }
