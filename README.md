@@ -6,13 +6,13 @@
 
 ### Install
 
-```angular2html
+```bash
 npm install ciqu-react-calendar --save
 ```
 
 ### Example
 
-```angular2html
+```js
 
 import React from 'react'
 import ReactDom from 'react-dom'
@@ -25,16 +25,16 @@ class MyCalendar extends React.Component {
     super(props)
   }
 
-  onChange = (value: moment.Moment, inputValue: string) => {
+  onChange = (value, inputValue) => {
     console.log(value.format('YYYY-MM-DD'))
     this.setState({value})
   }
 
-  onOpenChange = (status?: boolean) => {
+  onOpenChange = (status) => {
     console.log('open status: ' + status)
   }
 
-  disabledDate = (currentDate: moment.Moment, inputValue: string) => {
+  disabledDate = (currentDate, inputValue) => {
     return false
   }
 

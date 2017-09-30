@@ -141,10 +141,9 @@ class Calendar extends React.Component<CalendarProps, { [index: string]: any }> 
       this.preYear()
       return
     }
-    const newMonth = month - 1
 
     this.setState(
-      {month: newMonth},
+      {month: month - 1},
       typeof callback === 'function' ? callback : null
     )
   }
@@ -159,10 +158,8 @@ class Calendar extends React.Component<CalendarProps, { [index: string]: any }> 
       return
     }
 
-    const newMonth = month + 1
-
     this.setState(
-      {month: newMonth},
+      {month: month + 1},
       typeof callback === 'function' ? callback : null
     )
   }
@@ -171,7 +168,8 @@ class Calendar extends React.Component<CalendarProps, { [index: string]: any }> 
 
   nextYear = () => this.setState({year: this.state.year + 1})
 
-  clear = () => {
+  clear = (e) => {
+    e.stopPropagation()
 
     const {disabled} = this.props
 
