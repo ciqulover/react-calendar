@@ -6,7 +6,9 @@ module.exports = merge(baseConf, {
   entry: './src/Calendar.tsx',
   output: {
     filename: 'index.js',
-    path: resolve('../lib')
+    path: resolve('../lib'),
+    library: 'ciqu-react-calendar',
+    libraryTarget: 'umd'
   },
   externals: {
     react: {

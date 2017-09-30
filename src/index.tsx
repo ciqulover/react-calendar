@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
 import * as moment from 'moment'
-import Calender from './Calendar'
+import Calendar from './Calendar'
 
 class MyCalendar extends React.Component <{}, { [index: string]: any }> {
 
@@ -33,7 +33,7 @@ class MyCalendar extends React.Component <{}, { [index: string]: any }> {
       width: 400,
       margin: '200px auto'
     }}>
-      <Calender
+      <Calendar
         onChange={onChange}
         allowClear={true}
         value={value}

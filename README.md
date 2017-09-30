@@ -44,7 +44,7 @@ class MyCalendar extends React.Component {
       width: 400,
       margin: '200px auto'
     }}>
-      <Calender
+      <Calendar
         onChange={onChange}
         allowClear={true}
         disabled={false}
