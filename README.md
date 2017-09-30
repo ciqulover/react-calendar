@@ -71,19 +71,19 @@ interface CalendarProps {
   // when input value changes, this callback will be called, default null
   onChange?(value?: Moment, inputValue?: string): void
   
-  // fired when date picker show or hide, default null
+  // fired when datepicker shows or hides, default null
   onOpenChange?(status?: boolean): void
   
-  // when returned true the date cannot be picked, default null
+  // when returned true, the target date cannot be picked, default null
   disabledDate?(currentDate: Moment, inputValue: string): boolean
   
   // allow to clear the picked date, default true
   allowClear?: boolean
   
-  // if true, the date picker is disabled, default false
+  // if true, datepicker is disabled, default false
   disabled?: boolean
   
-  // control whether the date picker shows or hides, default false
+  // control whether datepicker shows or hides, default false
   open?: boolean,
   
   placeholder?: string
@@ -93,9 +93,10 @@ interface CalendarProps {
 
   className?: string
   
-  // value under control, default moment()
+  // the value under control, default moment()
   value?: Moment
   
+  // the default value 
   defaultValue?: Moment
 }
 ```
