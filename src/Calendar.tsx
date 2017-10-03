@@ -55,7 +55,7 @@ class Calendar extends React.Component<CalendarProps, { [index: string]: any }> 
       console.warn('Value and default value must be instance of Moment')
     }
 
-    const open = props.disabled ? false : props.open || false
+    const open = (props.disabled ? false : props.open) || false
     const format = props.format || 'YYYY-MM-DD'
     const inputValue = value.format(format)
 

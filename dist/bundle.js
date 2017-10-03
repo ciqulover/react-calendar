@@ -37206,8 +37206,7 @@ var Calendar = /** @class */ (function (_super) {
                 _this.preYear();
                 return;
             }
-            var newMonth = month - 1;
-            _this.setState({ month: newMonth }, typeof callback === 'function' ? callback : null);
+            _this.setState({ month: month - 1 }, typeof callback === 'function' ? callback : null);
         };
         _this.nextMonth = function (callback) {
             var month = _this.state.month;
@@ -37216,12 +37215,12 @@ var Calendar = /** @class */ (function (_super) {
                 _this.nextYear();
                 return;
             }
-            var newMonth = month + 1;
-            _this.setState({ month: newMonth }, typeof callback === 'function' ? callback : null);
+            _this.setState({ month: month + 1 }, typeof callback === 'function' ? callback : null);
         };
         _this.preYear = function () { return _this.setState({ year: _this.state.year - 1 }); };
         _this.nextYear = function () { return _this.setState({ year: _this.state.year + 1 }); };
-        _this.clear = function () {
+        _this.clear = function (e) {
+            e.stopPropagation();
             var disabled = _this.props.disabled;
             if (disabled)
                 return;
@@ -37250,7 +37249,7 @@ var Calendar = /** @class */ (function (_super) {
             value = moment();
             console.warn('Value and default value must be instance of Moment');
         }
-        var open = props.disabled ? false : props.open || false;
+        var open = (props.disabled ? false : props.open) || false;
         var format = props.format || 'YYYY-MM-DD';
         var inputValue = value.format(format);
         _this.state = {
